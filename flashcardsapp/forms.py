@@ -26,3 +26,9 @@ class UprofileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['profile_pic','bio']
+
+class UuserForm(forms.ModelForm):
+    email = forms.EmailField(max_length=254, help_text='Required.')
+    class Meta:
+        model = User
+        fields = ('username', 'email')

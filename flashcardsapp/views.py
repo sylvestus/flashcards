@@ -1,8 +1,11 @@
 from email import message
+from .forms import *
 from django.shortcuts import render
 from .models import Notes,Profile,Subject,Additionals
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+from django.http.response import  HttpResponseRedirect
+
 
 # Create your views here.
 def home(request):
