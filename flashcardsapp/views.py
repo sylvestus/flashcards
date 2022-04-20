@@ -1,8 +1,12 @@
 from email import message
+from .forms import *
 from django.shortcuts import render
 from .models import Notes,Profile,Subject,Additionals
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+from django.http.response import  HttpResponseRedirect
+from django.shortcuts import redirect, render
+
 
 # Create your views here.
 def home(request):
@@ -39,6 +43,78 @@ def flashcards_in_subject(request,id):
     flashcards=Notes.objects.filter(subject=id)
     return render(request,'flashcards.html',{'message':message,'flashcards':flashcards})
 
-def new_flash_card(request):
-    message='post new flashcards here'
-    return render(request,'newflash.html',{'message':message})
+def new_flash_card(request,id):
+    if request.method=="POST":
+        current_user=request.user.profile
+        note=Notes.objects.filter(id=id)
+        form= Newnotes(request.POST,request.FILES)
+        if form.is_valid():
+            subject = form.save(commit=False)
+            subject.profile = current_user
+            subject.subject= note
+            subject.save()
+            
+        return redirect('home')
+           
+
+    else:
+       
+        form =  Newnotes()
+    return render(request,'newflash.html',{'newflash':form,})
+
+def deleteflascards(request,id):
+    deleteflascards=Notes.objects.filter(id=id)
+    deleteflascards.delete()
+
+    return redirect('home')
+
+
+
+
+@login_required(login_url='/accounts/login/')
+def new_subject(request):
+    if request.method=="POST":
+        current_user=request.user.profile
+        
+        form=NewsubjectForm(request.POST,request.FILES)
+        if form.is_valid():
+            subject = form.save(commit=False)
+            subject.profile = current_user
+            subject.save()
+            
+        return redirect('home')
+           
+
+    else:
+       
+        form = NewsubjectForm()
+    return render(request,'newsubject.html',{'newsubject':form,})
+
+@login_required(login_url='/accounts/login/')
+def deletesubject(request,id):
+    post=Subject.objects.filter(id=id)
+    post.delete()
+
+    return redirect('home')
+
+
+# def additionals(request,id):
+#     if request.method=="POST":
+#         current_user=request.user.profile
+#         note=Notes.objects.filter(id=id)
+        
+#         form= Newnotes(request.POST,request.FILES)
+#         if form.is_valid():
+#             subject = form.save(commit=False)
+#             subject.profile = current_user
+#             subject.subject= note
+#             subject.save()
+            
+#         return redirect('home')
+           
+
+#     else:
+       
+#         form =  Newnotes()
+#     return render(request,'newflash.html',{'newflash':form,})
+
