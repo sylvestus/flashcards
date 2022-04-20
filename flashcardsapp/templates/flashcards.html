@@ -1,0 +1,11 @@
+{{message}}
+
+{%if flashcards%}
+{% for flashcard in flashcards%}
+{{flashcard.notes_title}}
+{{flashcard.notes}}
+{%endfor%}
+
+{%else%}
+
+{%endif%}
