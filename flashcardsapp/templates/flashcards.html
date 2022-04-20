@@ -4,6 +4,7 @@
 {% for flashcard in flashcards%}
 {{flashcard.notes_title}}
 {{flashcard.notes}}
+<a href="{% url 'newflash' flashcard.id%}"><button>add flashcard</button></a>
 {%endfor%}
 
 {%else%}

@@ -81,3 +81,5 @@ def new_subject(request):
        
         form = NewsubjectForm()
     return render(request,'newsubject.html',{'newsubject':form,})
+
+
