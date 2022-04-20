@@ -90,9 +90,9 @@ WSGI_APPLICATION = 'flashcards.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'neighbourhood',
+        'NAME': 'flashcards',
         'USER': 'moringa',
-        'PASSWORD': 'access',
+        'PASSWORD': 'access;',
     }
 }
 
