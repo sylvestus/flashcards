@@ -21,3 +21,8 @@ class newAdds(forms.ModelForm):
     class Meta:
         model=Additionals
         exclude=['profile','subject','notes']
+
+class UprofileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profile_pic','bio']

@@ -1,1 +1,10 @@
 {{message}}
+
+{%if subjects%}
+{% for subject in subjects%} 
+<a href="{% url 'flashcards' subject.id%}">{{subject.subjectname}}</a> 
+
+{%endfor%}
+{% else%}
+<h5>there are no registered subjects yet</h5>
+{%endif%}
