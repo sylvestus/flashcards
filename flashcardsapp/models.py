@@ -23,7 +23,7 @@ class Profile(models.Model):
 
 class Subject(models.Model):
     subjectname=models.CharField(max_length=50)
-    date_posted=models.DateTimeField(timezone.now)
+    date_posted=models.DateTimeField(default=timezone.now)
     profile=models.ForeignKey(Profile, on_delete=models.CASCADE,default="",null=True)
     def __str__(self):
         return self.subjectname
