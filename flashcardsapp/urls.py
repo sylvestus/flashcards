@@ -10,6 +10,8 @@ urlpatterns = [
     path('showProfile',views.profile,name='showProfile'),
     path('showProfile/update/<int:id>',views.uprofile,name='uprofile'),
     path('newsubject/',views.new_subject,name='newsubject'), 
+    path('deleteflashcards/<int:id>',views.deleteflascards, name='deleteflashcards'),
+    path('deletesubjects/<int:id>',views.deletesubject, name='deletesubjects'),
    
     
 ]

@@ -62,6 +62,14 @@ def new_flash_card(request,id):
         form =  Newnotes()
     return render(request,'newflash.html',{'newflash':form,})
 
+def deleteflascards(request,id):
+    deleteflascards=Notes.objects.filter(id=id)
+    deleteflascards.delete()
+
+    return redirect('home')
+
+
+
 
 @login_required(login_url='/accounts/login/')
 def new_subject(request):
@@ -81,6 +89,13 @@ def new_subject(request):
        
         form = NewsubjectForm()
     return render(request,'newsubject.html',{'newsubject':form,})
+
+@login_required(login_url='/accounts/login/')
+def deletesubject(request,id):
+    post=Subject.objects.filter(id=id)
+    post.delete()
+
+    return redirect('home')
 
 
 # def additionals(request,id):

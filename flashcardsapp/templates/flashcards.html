@@ -5,6 +5,7 @@
 {{flashcard.notes_title}}
 {{flashcard.notes}}
 <a href="{% url 'newflash' flashcard.id%}"><button>add flashcard</button></a>
+<a href="{% url 'deleteflashcards' flashcard.id%}"><button>delete notes</button></a>
 {%endfor%}
 
 {%else%}
