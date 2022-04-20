@@ -98,23 +98,23 @@ def deletesubject(request,id):
     return redirect('home')
 
 
-# def additionals(request,id):
-#     if request.method=="POST":
-#         current_user=request.user.profile
-#         note=Notes.objects.filter(id=id)
+def additionals(request,id):
+    if request.method=="POST":
+        current_user=request.user.profile
+        note=Notes.objects.filter(id=id)
         
-#         form= Newnotes(request.POST,request.FILES)
-#         if form.is_valid():
-#             subject = form.save(commit=False)
-#             subject.profile = current_user
-#             subject.subject= note
-#             subject.save()
+        form= Newnotes(request.POST,request.FILES)
+        if form.is_valid():
+            subject = form.save(commit=False)
+            subject.profile = current_user
+            subject.subject= note
+            subject.save()
             
-#         return redirect('home')
+        return redirect('home')
            
 
-#     else:
+    else:
        
-#         form =  Newnotes()
-#     return render(request,'newflash.html',{'newflash':form,})
+        form =  Newnotes()
+    return render(request,'newflash.html',{'newflash':form,})
 
