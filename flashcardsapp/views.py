@@ -83,3 +83,23 @@ def new_subject(request):
     return render(request,'newsubject.html',{'newsubject':form,})
 
 
+# def additionals(request,id):
+#     if request.method=="POST":
+#         current_user=request.user.profile
+#         note=Notes.objects.filter(id=id)
+        
+#         form= Newnotes(request.POST,request.FILES)
+#         if form.is_valid():
+#             subject = form.save(commit=False)
+#             subject.profile = current_user
+#             subject.subject= note
+#             subject.save()
+            
+#         return redirect('home')
+           
+
+#     else:
+       
+#         form =  Newnotes()
+#     return render(request,'newflash.html',{'newflash':form,})
+
