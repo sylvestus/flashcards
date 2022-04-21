@@ -17,10 +17,10 @@ class Newnotes(forms.ModelForm):
         model=Notes
         exclude=['profile','subject']
 
-class newAdds(forms.ModelForm):
-    class Meta:
-        model=Additionals
-        exclude=['profile','subject','notes']
+# class newAdds(forms.ModelForm):
+#     class Meta:
+#         model=Additionals
+#         exclude=['profile','subject','notes']
 
 class UprofileForm(forms.ModelForm):
     class Meta:

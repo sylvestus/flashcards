@@ -62,18 +62,7 @@ class Notes(models.Model):
 
 
 
-class Additionals(models.Model):
-    user_adds=models.TextField()
-    profile=models.ForeignKey(Profile, on_delete=models.CASCADE,default="",null=True)
-    subject=models.ForeignKey(Subject, on_delete=models.CASCADE,default="",null=True)
-    notes=models.ForeignKey(Notes, on_delete=models.CASCADE,default="",null=True)
-    def __str__(self):
-        return self.user_adds
 
-
-    def save_additionals(self):
-        self.save()
-        
     
         
       
