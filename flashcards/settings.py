@@ -92,7 +92,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'flashcards',
-        'USER': 'moringa',
+        'USER': 'hezron',
         'PASSWORD': 'access;',
     }
 }
