@@ -1,4 +1,4 @@
-{{message}}
+
 
 {%if subjects%}
 {% for subject in subjects%} <li><a href="{% url 'flashcards' subject.id%}">{{subject.subjectname}}</a>  <br></li>
@@ -11,4 +11,5 @@
 {%endfor%}
 {% else%}
 <h5>there are no registered subjects yet</h5>
+<li><a href="{% url 'newsubject'%}"> <button>add subjects</button></a></li>
 {%endif%}
