@@ -1,10 +1,44 @@
+<style>
+    .cpn{
+       
+        border-radius: 10%;
+        background-color: antiquewhite;
+        height: 60px;
+        width: 200px;
+        margin: 15px;
+        font-size: 25px;
+        
+    }
 
+    *{
+         background-color: rgb(45, 68, 68);
+
+    }
+
+    .list {
+        font-size: 30px;
+        color: white;
+        
+    }
+
+    li {
+        text-align: center;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    .subject {
+        display: flex;
+        margin-left: 38%;
+    }
+</style>
 
 {%if subjects%}
-{% for subject in subjects%} <li><a href="{% url 'flashcards' subject.id%}">{{subject.subjectname}}</a>  <br></li>
-<li><a href="{% url 'newsubject'%}"> <button>add subjects</button></a></li>
-<li><a href="{% url 'deletesubjects' subject.id%}"><button>delete subject</button></a></li>
-
+{% for subject in subjects%} <li><a class="list" href="{% url 'flashcards' subject.id%}">{{subject.subjectname}}</a>  <br></li>
+<div class="subject">
+<li><a href="{% url 'newsubject'%}"> <button class="cpn">add subjects</button></a></li>
+<li><a href="{% url 'deletesubjects' subject.id%}"><button class="cpn">delete subject</button></a></li>
+</div>
 
 
 

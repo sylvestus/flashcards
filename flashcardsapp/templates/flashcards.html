@@ -1,11 +1,37 @@
+<style>
+    *{
+         background-color: rgb(79, 99, 99);
 
+    }
+    .btn{
+        margin-left: 25%;
+        border-radius: 8%;
+        background-color: antiquewhite;
+        height: 60px;
+        width: 210px;
+        font-size: 25px;
+
+
+    }
+  h6{
+        text-align: center;
+        font-size: 25px;
+       
+    }
+    h3 {
+        font-size: 35px;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+</style>
 
 {%if flashcards%}
 {% for flashcard in flashcards%}
-<h3>{{flashcard.notes_title}}</h3>
+<h3 class="flash">{{flashcard.notes_title}}</h3>
 <h6>{{flashcard.notes}}</h6>
-<a href="{% url 'newflash' flashcard.id%}"><button>add flashcard</button></a>
-<a href="{% url 'deleteflashcards' flashcard.id%}"><button>delete notes</button></a>
+<a  href="{% url 'newflash' flashcard.id%}"><button class="btn">add flashcard</button></a>
+<a  href="{% url 'deleteflashcards' flashcard.id%}"><button class="btn">delete notes</button></a>
 {%endfor%}
 
 {%else%}
